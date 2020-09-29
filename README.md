@@ -57,14 +57,14 @@ Now you can use **plug.kak**.
 ## Usage
 You can specify what plugins to install and load by using `plug` command. This
 command accepts one-or-more arguments, which are keywords and attributes, that
-change how **plug.kak** behaves.
+change how **plug.kak** behaves. For now, let's start out by adding plug.kak itself:
+
+```kak
+plug "robertmeta/plug.kak" noload
+```
 
 The first strict rule of the `plug` command is that the first argument is always
 the plugin name formatted as in GitHub URL: `"author/repository"`.
-
-```kak
-plug "author/repository"
-```
 
 By default **plug.kak** will look for this plugin at GitHub.com, and download it
 for you.  If you want to install a plugin from place other than GitHub, like
