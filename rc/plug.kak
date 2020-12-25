@@ -15,7 +15,7 @@ declare-option -docstring \
 "Path where plugins should be installed.
 
     Defaults to the plug.kak installation directory" \
-str plug_install_dir %sh{ echo "${kak_source%%/rc*}/../" }
+str plug_install_dir %sh{ printf %s "${kak_source%%/rc*}/../" }
 
 declare-option -docstring \
 "Default domain to access git repositories. Can be changed to any preferred domain, like gitlab, bitbucket, gitea, etc.
