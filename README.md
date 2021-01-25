@@ -97,8 +97,8 @@ how **plug.kak** works, or add additional steps for `plug` to perform for you.
 
 These are available keywords:
 - [branch, tag, commit][9]
-- [load-path][22]
 - [subset][10]
+- [load-path][22]
 - [noload][11]
 - [do][12]
 - [theme][13]
