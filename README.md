@@ -97,8 +97,8 @@ how **plug.kak** works, or add additional steps for `plug` to perform for you.
 
 These are available keywords:
 - [branch, tag, commit][9]
-- [load-path][10]
-- [subset][22]
+- [load-path][22]
+- [subset][10]
 - [noload][11]
 - [do][12]
 - [theme][13]
@@ -116,7 +116,7 @@ it. To do so, add this after plugin name: `branch "branch_name"`, `tag
 
 #### Loading subset of files from plugin repository
 If you want to load only part of a plugin (assuming that plugin allows this) you
-can use `load` keyword followed by filenames. If `load` isn't specified `plug`
+can use `subset` keyword followed by filenames. If `subset` isn't specified `plug`
 uses it's default value, which is `*.kak`, and by specifying a value, you just
 override default one. Here's an example:
 
@@ -419,6 +419,23 @@ plugin, depending on its state. This command accepts an optional argument
 
 ### `plug`
 And last but not least: `plug`. Load plugin from plugin installation directory by its name.
+
+## Tips and Tricks
+
+### Automatic Installation
+
+In your kakrc, replace the ```source "%val{config}/plugins/plug.kak/rc/plug.kak"``` line with the following:
+
+```kak
+try %{
+  source "%val{config}/plugins/plug.kak/rc/plug.kak"
+} catch %{ nop %sh{
+  if [ ! -d "$kak_config/plugins/plug.kak" ]; then
+    git clone "https://github.com/robertmeta/plug.kak.git" "$kak_config/plugins/plug.kak"
+    echo "source '%val{config}/plugins/plug.kak/rc/plug.kak'"
+  fi
+}}
+```
 
 [1]: https://img.shields.io/github/issues/robertmeta/plug.kak.svg
 [2]: https://github.com/robertmeta/plug.kak/issues
