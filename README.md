@@ -428,12 +428,12 @@ In your kakrc, replace the ```source "%val{config}/plugins/plug.kak/rc/plug.kak"
 
 ```kak
 try %{
-  source "%val{config}/plugins/plug.kak/rc/plug.kak"
+    source "%val{config}/plugins/plug.kak/rc/plug.kak"
 } catch %{ nop %sh{
-  if [ ! -d "$kak_config/plugins/plug.kak" ]; then
-    git clone "https://github.com/robertmeta/plug.kak.git" "$kak_config/plugins/plug.kak"
-    echo "source '%val{config}/plugins/plug.kak/rc/plug.kak'"
-  fi
+    if [ ! -d "$kak_config/plugins/plug.kak" ]; then
+        git clone "https://github.com/robertmeta/plug.kak.git" "$kak_config/plugins/plug.kak"
+        echo "source '%val{config}/plugins/plug.kak/rc/plug.kak'"
+    fi
 }}
 ```
 
